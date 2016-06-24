@@ -79,3 +79,6 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 #可以在程序中嵌入v8引擎。
 gem 'therubyracer'
+#在线编辑器
+gem 'bootstrap-wysihtml5-rails'
+gem "wysiwyg-rails"
