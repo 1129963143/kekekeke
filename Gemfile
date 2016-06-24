@@ -51,6 +51,9 @@ gem 'rails_admin'
 gem 'cancancan', '~> 1.10'
 #用户管理，登录／注销
 gem 'devise'
+#devise的国际化gem
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'passenger', '~> 5.0', '>= 5.0.28'
 
 group :development, :test do

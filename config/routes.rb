@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+                 sessions: 'users/sessions', #登录／退出
+                 registrations: 'users/registrations',
+                 passwords: 'users/passwords'
+                   },
+             path_names: {    #为动作设置别名
+                 sign_in: 'login',       #登录别名
+                 sign_out: 'logout',
+                 password: 'secret',
+                              confirmation: 'verification',
+                              registration: 'register'
+
+             }
+  #路由域
+  devise_scope :user do
+    get 'login',  to: 'users/sessions#new'
+    get 'register', to: 'users/registrations#new'
+    get 'secret', to: 'users/passwords#new'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
