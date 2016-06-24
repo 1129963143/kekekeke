@@ -44,4 +44,28 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+#==================================================
+#后台模板
+gem 'rails_admin'
+#授权
+gem 'cancancan', '~> 1.10'
+#用户管理，登录／注销
+gem 'devise'
+gem 'passenger', '~> 5.0', '>= 5.0.28'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  #rspec的自动化测试工具之一
+  gem 'guard-rspec', require: false
+  #自动化测试工具guard的加速测试工具spork插件
+  gem 'guard-spork'
+  gem 'capybara'
+  gem 'factory_girl_rails', '4.6.0'
+  #为数据库填充测试提供基础数据，当你需要注册数百个账户时。
+  gem 'ffaker', '~>2.2.0'
+end
+
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+#可以在程序中嵌入v8引擎。
+gem 'therubyracer'
