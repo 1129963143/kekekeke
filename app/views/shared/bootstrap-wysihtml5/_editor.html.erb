@@ -1,0 +1,16 @@
+<div>
+  <%= stylesheet_link_tag 'bootstrap-wysihtml5-cuscom/bootstrap-wysihtml5' %>
+  <%= javascript_include_tag 'cus-bootstrap-wysihtml5/bootstrap-wysihtml5' %>
+
+<textarea id="some-textarea" class='wysihtml5' placeholder="Enter text ..." cols="83" rows="25" required="required"></textarea>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('.wysihtml5').each(function(i, elem) {
+            $(elem).wysihtml5();
+        });
+
+    })
+</script>
+</div>

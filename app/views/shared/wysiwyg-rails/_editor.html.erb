@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag 'wysiwyg-rails-cus/wysiwyg-rails' %>
+
+
+  <textarea id="edit" name="content"></textarea>
+
+<script>
+    $(function() {
+        $('#edit').froalaEditor({
+            language: 'zh_cn',    /*中文*/
+            heightMin: 500        /*最小高度*/
+        })
+    });
+
+</script>
+<%= javascript_include_tag 'cus-wysiwyg-rails/wysiwyg-rails' %>
