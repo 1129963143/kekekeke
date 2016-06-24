@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  #==========================
   devise_for :users, controllers: {
-                 sessions: 'users/sessions', #登录／退出
+                 sessions: 'users/sessions',               #登录／退出
                  registrations: 'users/registrations',
                  passwords: 'users/passwords'
                    },
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
                               registration: 'register'
 
              }
-  #路由域
+  #路由域======================
   devise_scope :user do
     get 'login',  to: 'users/sessions#new'
     get 'register', to: 'users/registrations#new'
