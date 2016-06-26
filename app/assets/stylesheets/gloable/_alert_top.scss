@@ -1,0 +1,18 @@
+$key_alert: alert !default;
+$key_error: error !default;
+
+.wzh-alert-top{
+  .col-#{$key_alert}{
+
+  }
+  .message-#{$key_alert}{
+
+  }
+  .col-#{$key_error}{
+
+  }
+  .message-#{$key_error}{
+
+  }
+
+}
