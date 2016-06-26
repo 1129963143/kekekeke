@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-9">
+      <%= form_for @post do |f| %>
+
+          <%= render partial: "shared/wysiwyg-rails/editor", locals: {content: @post.content} %>
+
+        <%= f.hidden_field :content,class: 'post_content' %>
+
+          <script >
+            //提交时将编辑器中的内容放入表单中。
+            $(function(){
+                form_submit_get_cus_content('#new_blogs_post','.post_content')
+            })
+          </script>
+          <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>

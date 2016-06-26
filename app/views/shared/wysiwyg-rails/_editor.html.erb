@@ -1,15 +1,65 @@
 <%= stylesheet_link_tag 'wysiwyg-rails-cus/wysiwyg-rails' %>
 
 
-  <textarea id="edit" name="content"></textarea>
+
+    <div id="froala-editor" name="content"></div>
+
 
 <script>
+  //实例化编辑器
     $(function() {
-        $('#edit').froalaEditor({
-            language: 'zh_cn',    /*中文*/
-            heightMin: 500        /*最小高度*/
-        })
-    });
+        $('div#froala-editor').froalaEditor({
+            language: 'zh_cn', /*中文*/
+            height: 500, /*高度*/
+            heightMin: 200, /*最低高度*/
+            heightMax: 800   /*最高高度*/
+        });
+    })
 
 </script>
+<% if content.present? %>
+    <script>
+        //添加内容到编辑器中，必须要在编辑器实例话之后
+        $(function(){
+            $('div#froala-editor').froalaEditor('html.set',"<%= content %>");
+        })
+    </script>
+<% end %>
+<script>
+  //如果编辑器中存在内容，则将其赋予
+  // id / class 为　sign的值
+  //的元素的value
+  // return 获取到的内容
+  // or
+  // return null
+  function get_cus_content(sign){
+      //获取editor中的源代码
+      var editor_code = $('div#froala-editor').froalaEditor('html.get', true);
+      if(editor_code!=null){
+          $(sign).val(editor_code);
+          $(sign).text(editor_code);
+          return editor_code;
+      }
+      return null;
+  }
+
+  /*
+  * 将获取editor内容的任务绑定到表单（form-sign）提交时间上
+  *　表单在提交,如果编辑器中没有内容，则禁止提交
+  *
+  * form_sign 表单的标准，id / class
+  * deposit_element 存储编辑器中内容待提交的元素，比如隐藏的input / textarea 的 id / class
+  * */
+  function form_submit_get_cus_content(form_sign,deposit_element){
+      $(form_sign).submit(function(){
+          if(get_cus_content(deposit_element)!=null){
+                return true;
+          }
+          return false;
+
+      })
+  }
+
+</script>
+
 <%= javascript_include_tag 'cus-wysiwyg-rails/wysiwyg-rails' %>

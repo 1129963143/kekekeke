@@ -4,7 +4,15 @@ Rails.application.routes.draw do
 
 
 
+  namespace :blogs do
+  resources :posts
+  end
+
+
+
+  #===========================
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   #==========================
   devise_for :users, controllers: {
                  sessions: 'users/sessions',               #登录／退出
