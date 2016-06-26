@@ -35,6 +35,6 @@ module Kekekeke
 
     config.assets.precompile+= %w( welcome.scss )
     config.assets.precompile+= %w( gloable/index.css )
-
+    config.assets.precompile+= %w( blogs/posts.scss )
   end
 end

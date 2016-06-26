@@ -35,7 +35,7 @@
   function get_cus_content(sign){
       //获取editor中的源代码
       var editor_code = $('div#froala-editor').froalaEditor('html.get', true);
-      if(editor_code!=null){
+      if(editor_code!=""){
           $(sign).val(editor_code);
           $(sign).text(editor_code);
           return editor_code;
@@ -54,8 +54,10 @@
       $(form_sign).submit(function(){
           if(get_cus_content(deposit_element)!=null){
                 return true;
+          }else{
+              alert('请不要提交空的内容！')
+              return false;
           }
-          return false;
 
       })
   }

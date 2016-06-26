@@ -1,2 +1,13 @@
-<h1>Blogs::Posts#show</h1>
-<p>Find me in app/views/blogs/posts/show.html.erb</p>
+<%= stylesheet_link_tag params[:controller] %>
+<div class="container">
+  <div id="preview" class="fr-view"></div>
+  <script>
+     $(function(){
+         var content_code = "<%=@post.content%>"
+         alert(content_code)
+         var content = $('#preview').html(content_code).text();
+         alert(content)
+         $('#preview').html(content);
+     })
+  </script>
+</div>
