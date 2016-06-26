@@ -17,11 +17,12 @@ class Blogs::PostsController < ApplicationController
   end
 
   def show
+    @title = TitleStyle.new(@post.title,'show-blog_title','http://img.blog.163.com/photo/mlYY1Lc4KiJ_iOfRk6dxYQ==/1442559255642204902.jpg')
   end
 
   private
   def create_params
-    params.require(:blogs_post).permit(:content)
+    params.require(:blogs_post).permit(:content, :title)
   end
   def set_post
     @post = Blogs::Post.find(params[:id])

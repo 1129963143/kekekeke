@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kekekeke</title>
+  <title><%= yield :title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-<%= render partial: 'shared/navigation/header' %>
+<%= content_for?(:hidden_header_navi) ? nil :  render(partial: 'shared/navigation/header') %>
 <%= render partial: 'shared/gloable/alert_top' %>
 <%= yield %>
 

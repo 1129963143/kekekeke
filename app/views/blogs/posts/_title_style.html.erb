@@ -1,0 +1,13 @@
+<!--http://zpfx2009.blog.163.com/blog/static/95058798200931471243764/-->
+<% default_image_url = "http://img.blog.163.com/photo/zcxiDUbwjNbeKuvtpTAczQ==/1442559255642204898.jpg" %>
+  <P style="TEXT-INDENT: 2em;"  >&nbsp;
+  <TABLE height="70" width="525" class="<%= title_style.class_style %>">
+    <TBODY>
+    <TR>
+      <TD vAlign="center" align="middle" background=<%=title_style.title_image_url.presence || default_image_url %> >
+        <P></P>
+        <P style="TEXT-INDENT: 2em;" class="title"  ><%=title_style.title_content.presence || '无标题' %></P>
+      </TD>
+    </TR>
+  </TABLE>
+  </P>

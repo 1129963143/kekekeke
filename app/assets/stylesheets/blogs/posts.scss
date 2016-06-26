@@ -4,3 +4,25 @@
 /*
 *= require froala_style.min.css
 */
+
+input.blog-title{
+  width: 700px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  outline:#00ff00 dotted thick;
+
+}
+label.title{
+  margin-right: 30px;
+}
+
+//博客标题展示
+.show-blog_title{
+  .title{
+    color: blue;
+  }
+}
+
+@import "posts_show";
