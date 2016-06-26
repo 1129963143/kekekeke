@@ -1,0 +1,77 @@
+<style>
+    .container{
+        padding-top: 5px;
+    }
+    .navbar-header a img{
+
+        position: relative;
+        top: -10px;
+    }
+
+</style>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <!--设置网站LOGO-->
+    <div class="navbar-header"><a class="navbar-brand" href="<%=   %>"> <img alt="LOGO" src="<%= asset_path 'favicon.ico' %>" style="width: 32px;"></a> </div>
+
+    <ul class="nav nav-pills" id="nav-ui-id">
+      <li role="presentation"><a href="<%=   %> ">首页</a></li>
+      <% if can? [:read,:index], :all %>
+          <li role="presentation"><a href="<%=   %>">导航页</a></li>
+      <% end %>
+      <li role="presentation" id="about"><a href="<%=   %>">关&nbsp;&nbsp;于</a></li>
+
+      <li role="presentation" class="dropdown navbar-right">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          系统设置<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <% if signed_in? %>
+              <li><a href="<%=  %> ">账户： <%= current_user.email  %></a></li>
+              <li> <%= link_to '退出', destroy_user_session_path(current_user) , method: :delete, data: { confirm: '确定吗?'}%> </li>
+
+
+                  <!--如果当前账户具有进入后天管理系统的权限，则-->
+                  <li> <%= link_to '进入后台',rails_admin_url %></li>
+
+              <li role="separator" class="divider"></li>
+
+          <% else %>
+
+                  <li><a href="<%= new_user_session_path %>">登&nbsp;&nbsp;录</a></li>
+
+
+                  <li><a href="<%= new_user_registration_path %>">注册</a></li>
+
+              <li role="separator" class="divider"></li>
+          <% end %>
+
+              <li><a href="<%= new_blogs_post_path %>" >写&nbsp;文&nbsp;章&nbsp;&nbsp;</a></li>
+              <li role="separator" class="divider"></li>
+
+
+
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<script type="text/javascript">
+    var $tmp =  $("ul#nav-ui-id > li");
+    var className = "active";
+    $tmp.click(function() {
+        $(this).addClass(className).siblings().removeClass(className);
+    });
+
+    /* 如果有disabled类，这禁用链接，否则为其修改样式并将其他的同类样式删除*/
+    $("div#left-list-group-id > a").click(function() {
+        if(false == $(this).hasClass("disabled")){
+            $(this).addClass(className).siblings().removeClass(className);
+        }else{
+            $(this).removeAttr("href").removeAttr("onclick");
+        }
+
+    });
+</script>
