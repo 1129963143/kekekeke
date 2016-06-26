@@ -82,5 +82,5 @@ gem 'therubyracer'
 #在线编辑器
 gem 'bootstrap-wysihtml5-rails'
 gem "wysiwyg-rails"
-gem 'will_paginate', '~> 3.1.0'
-gem 'bootstrap-will_paginate'
+# gem 'will_paginate', '~> 3.1.0'
+# gem 'bootstrap-will_paginate'

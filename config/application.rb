@@ -26,8 +26,9 @@ module Kekekeke
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.assets.precompile+= %w( bootstrap-wysihtml5-cuscom/bootstrap-wysihtml5.scss )
-    config.assets.precompile += %w( cus-bootstrap-wysihtml5/bootstrap-wysihtml5.js )
+    #当bootstrap-wysihtml5 与　wysiwyg-rails同时使用时rails_admin　无法使用
+    # config.assets.precompile+= %w( bootstrap-wysihtml5-cuscom/bootstrap-wysihtml5.scss )
+    # config.assets.precompile += %w( cus-bootstrap-wysihtml5/bootstrap-wysihtml5.js )
     config.assets.precompile+= %w( wysiwyg-rails-cus/wysiwyg-rails.scss )
     config.assets.precompile+= %w( cus-wysiwyg-rails/wysiwyg-rails.js )
 
