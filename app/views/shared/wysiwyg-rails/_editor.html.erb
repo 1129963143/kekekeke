@@ -1,5 +1,23 @@
 <%= stylesheet_link_tag 'wysiwyg-rails-cus/wysiwyg-rails' %>
+<!--
+用法：
+由于我一般 new and edit 用的都是一个表单，所以需要为表单添加统一的clss标示
+　html: {class: 'post_new_or_edit'}
+引用此局部视图时传入需要在编辑器中显示的数据。
+  render partial: "shared/wysiwyg-rails/editor", locals: {content: @post.content}
+设置一个隐藏的输入元素用于存储编辑器中的内容
+  <%#= f.hidden_field :content,class: 'post_content' %>
 
+为表单添加事件,使得表单在提交之前将编辑器中的内容填充到上面定义的 .post_content 表单元素中，随表单一起提交到服务器。
+　<script >
+            //提交时将编辑器中的内容放入表单中。
+            $(function(){
+                form_submit_get_cus_content('.post_new_or_edit','.post_content')
+            })
+　</script>
+敬请参考posts/new　页面的用法。
+
+-->
 
 
     <div id="froala-editor" name="content"></div>
@@ -41,7 +59,7 @@
       if(editor_code!=""){
           $(sign).val(editor_code);
           $(sign).text(editor_code);
-          return editor_code;
+          return true;
       }
       return false;
   }
