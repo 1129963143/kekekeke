@@ -22,7 +22,9 @@ class Blogs::PostsController < ApplicationController
   end
   def update
     if @post.update(update_params)
-      redirect_to action: :show
+      redirect_to action: :show, notice: "您的博客　#{@post.title}　更新成功！"
+    else
+      redirect_to :back, alert: '更新失败！'
     end
   end
   def show
