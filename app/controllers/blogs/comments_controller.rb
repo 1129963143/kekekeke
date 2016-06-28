@@ -7,7 +7,7 @@ class Blogs::CommentsController < ApplicationController
     @blog_comment.user = current_user
     respond_to do |format|
       if @blog_comment.save
-        @blog_comment.created_at= datetime_format_helper(@blog_comment.created_at)
+
         format.json{ render json: [@blog_comment,current_user], status: :created }
       else
         format.html
