@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
 
   namespace :blogs do
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:new, :create]
+  end
   end
 
 

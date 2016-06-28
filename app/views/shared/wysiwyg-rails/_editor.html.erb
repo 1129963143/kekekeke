@@ -3,7 +3,8 @@
 
 
     <div id="froala-editor" name="content"></div>
-
+    <!--编辑器内容的缓存容器，由于服务器存储的编译后的html代码，需要先在此转换为标准的html的代码-->
+    <textarea hidden id="content-stor"></textarea>
 
 <script>
   //实例化编辑器
@@ -21,7 +22,9 @@
     <script>
         //添加内容到编辑器中，必须要在编辑器实例话之后
         $(function(){
-            $('div#froala-editor').froalaEditor('html.set',"<%= content %>");
+            content = "<%= content %>"
+            var content_html_code = $('#content-stor').html(content).val()
+            $('div#froala-editor').froalaEditor('html.set',content_html_code);
         })
     </script>
 <% end %>
@@ -40,7 +43,7 @@
           $(sign).text(editor_code);
           return editor_code;
       }
-      return null;
+      return false;
   }
 
   /*
@@ -52,7 +55,7 @@
   * */
   function form_submit_get_cus_content(form_sign,deposit_element){
       $(form_sign).submit(function(){
-          if(get_cus_content(deposit_element)!=null){
+          if(get_cus_content(deposit_element)== true){
                 return true;
           }else{
               alert('请不要提交空的内容！')

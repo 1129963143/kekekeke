@@ -1,0 +1,25 @@
+// Place all the styles related to the blogs/comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.blog-comment{
+  background-color: #EFEFEF;
+  div{
+    border-radius: 10px;
+    border: 1px double blue;
+    min-height: 100px;
+    text-indent: 2em;
+    padding: 5px 5px 5px 10px;
+    white-space: pre;
+
+  }
+  h5.email{
+    float: left;
+  }
+  h6{
+    float: right;
+
+  }
+  h5.loucent{
+   clear: right;
+  }
+}

@@ -11,17 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624233953) do
+ActiveRecord::Schema.define(version: 20160626232122) do
+
+  create_table "blogs_comments", force: :cascade do |t|
+    t.integer  "comment_id"
+    t.text     "comment_content"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "post_id"
+  end
+
+  add_index "blogs_comments", ["comment_id"], name: "index_blogs_comments_on_comment_id"
 
   create_table "blogs_posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "sort_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "post_count"
+    t.integer  "comment_count"
   end
 
+  add_index "blogs_posts", ["post_count"], name: "index_blogs_posts_on_post_count"
   add_index "blogs_posts", ["title"], name: "index_blogs_posts_on_title"
 
   create_table "users", force: :cascade do |t|
@@ -37,9 +51,12 @@ ActiveRecord::Schema.define(version: 20160624233953) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "post_count"
+    t.integer  "blogs_comment_count"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["post_count"], name: "index_users_on_post_count"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

@@ -3,4 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :blogs_posts, :class_name => 'Blogs::Post',
+      inverse_of: :user
+
+  has_many :blogs_comments, :class_name => 'Blogs::Comment',
+      inverse_of: :user
+
 end
