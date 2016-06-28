@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag params[:controller] %>
-<%= content_for :title,'创建博客文章' %>
+<%= content_for :title,@post.new_record? ? '创建博客文章' : '更新' %>
 <div class="container">
   <div class="row">
     <%= form_for @post ,html: {class: 'post_new_or_edit'} do |f| %>

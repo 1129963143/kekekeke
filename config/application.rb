@@ -39,5 +39,6 @@ module Kekekeke
 
     config.assets.precompile+= %w( blogs/posts.scss )
     config.assets.precompile+= %w( blogs/posts.coffee )
+    config.assets.precompile+= %w( blogs/_posts_show.scss )
   end
 end

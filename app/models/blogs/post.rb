@@ -3,4 +3,6 @@ class Blogs::Post < ActiveRecord::Base
              inverse_of: :blogs_posts
   has_many :blogs_comments, :class_name => 'Blogs::Comment',
       inverse_of: :blogs_post
+
+
 end

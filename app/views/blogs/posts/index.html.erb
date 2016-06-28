@@ -1,3 +1,15 @@
+<%= content_for :title, '博客列表' %>
+
 <div class="container">
-  
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <% @posts.each do |post|
+      next if post.title.blank?
+      %>
+        <div>
+          <h3><a href="<%= blogs_post_path(post) %>"><%= post.title %></a></h3>
+        </div>
+      <% end if @posts.length > 0 %>
+    </div>
+  </div>
 </div>

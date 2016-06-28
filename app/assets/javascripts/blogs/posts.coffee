@@ -13,5 +13,5 @@ $(document).ready ->
     $('.blog-comments').append hm
     $('#blogs_comment_comment_content').val('')
   ).on("ajax:error", (e, data, status, xhr) ->
-    $('#new_blogs_comment').append "<p>错误。</p>"
+    $('#new_blogs_comment').append "<p>评论内容提交失败！</p>"
   )
