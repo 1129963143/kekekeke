@@ -22,9 +22,13 @@
                 form_submit_get_cus_content('.post_new_or_edit','.post_content')
             })
           </script>
-          <%= f.submit %>
     </div>
-    <% end %>
+        <div class="col-lg-10 col-lg-offset-1">
+          <h5><label>博客分类：</label><%= select_tag "blogs_post[sort_id]" ,options_from_collection_for_select(@post_sorts, :id, :name,(@post.sort_id unless @post.blank?) ),class: 'cus_select' %></h5>
+          <%= f.submit %>
+        </div>
+
+  <% end %>
 
   </div>
 

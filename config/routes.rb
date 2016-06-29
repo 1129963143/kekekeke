@@ -4,12 +4,25 @@ Rails.application.routes.draw do
 
 
 
+  namespace :blogs do
+  get 'post_sorts/index'
+  end
+
+  namespace :blogs do
+  get 'post_sorts/new'
+  end
+
+  namespace :blogs do
+  get 'post_sorts/create'
+  end
+
   get 'about/we'
 
   namespace :blogs do
   resources :posts do
     resources :comments, only: [:create]
   end
+    resources :post_sorts, only: [:index, :new, :create, :destroy]
   end
 
 

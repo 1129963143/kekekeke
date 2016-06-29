@@ -6,6 +6,7 @@ class Blogs::PostsController < ApplicationController
 
   def new
     @post = Blogs::Post.new
+    @post_sorts = Blogs::Sort.all
   end
 
   def create
@@ -18,6 +19,7 @@ class Blogs::PostsController < ApplicationController
     end
   end
   def edit
+    @post_sorts = Blogs::Sort.all
     render :new
   end
   def update
@@ -31,14 +33,15 @@ class Blogs::PostsController < ApplicationController
     @title = TitleStyle.new(@post.title,'show-blog_title','http://img.blog.163.com/photo/mlYY1Lc4KiJ_iOfRk6dxYQ==/1442559255642204902.jpg')
     @blog_comment = Blogs::Comment.new
     @blog_comments = Blogs::Comment.where(blogs_post: @post).order(created_at: :desc)
+    
   end
 
   private
   def create_params
-    params.require(:blogs_post).permit(:content, :title)
+    params.require(:blogs_post).permit(:content, :title, :sort_id)
   end
   def update_params
-    params.require(:blogs_post).permit(:content)
+    params.require(:blogs_post).permit(:content, :sort_id)
   end
   def set_post
     @post = Blogs::Post.find(params[:id])
