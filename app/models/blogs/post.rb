@@ -4,5 +4,6 @@ class Blogs::Post < ActiveRecord::Base
   has_many :blogs_comments, :class_name => 'Blogs::Comment',
       inverse_of: :blogs_post
 
-
+  has_many :blogs_sorts, :class_name => 'Blogs::Sort',
+      inverse_of: :blogs_post
 end

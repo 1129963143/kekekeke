@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
   has_many :blogs_comments, :class_name => 'Blogs::Comment',
       inverse_of: :user
 
+  has_many :blogs_sorts, :class_name => 'Blogs::Sort',
+      inverse_of: :user
+
 end

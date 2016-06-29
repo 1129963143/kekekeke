@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626232122) do
+ActiveRecord::Schema.define(version: 20160629065545) do
 
   create_table "blogs_comments", force: :cascade do |t|
     t.integer  "comment_id"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 20160626232122) do
   add_index "blogs_posts", ["post_count"], name: "index_blogs_posts_on_post_count"
   add_index "blogs_posts", ["title"], name: "index_blogs_posts_on_title"
 
+  create_table "blogs_sorts", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.integer  "post_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -53,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160626232122) do
     t.datetime "updated_at",                          null: false
     t.integer  "post_count"
     t.integer  "blogs_comment_count"
+    t.integer  "blogs_sort_count"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
