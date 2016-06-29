@@ -16,10 +16,8 @@
 
     <ul class="nav nav-pills" id="nav-ui-id">
       <li role="presentation"><a href="<%= root_url  %> ">首页</a></li>
-      <% if can? [:read,:index], :all %>
-          <li role="presentation"><a href="<%=   %>">导航页</a></li>
-      <% end %>
-      <li role="presentation" id="about"><a href="<%=   %>">关&nbsp;&nbsp;于</a></li>
+
+      <li role="presentation" id="about"><a href="<%= about_we_url  %>">关&nbsp;&nbsp;于</a></li>
 
       <li role="presentation" class="dropdown navbar-right">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

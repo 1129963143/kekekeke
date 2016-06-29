@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'about/we'
+
   namespace :blogs do
   resources :posts do
     resources :comments, only: [:create]

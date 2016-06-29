@@ -34,6 +34,7 @@ module Kekekeke
     config.assets.precompile+= %w( cus-wysiwyg-rails/wysiwyg-rails.js )
 
     config.assets.precompile+= %w( welcome.scss )
+    config.assets.precompile+= %w( about.scss )
     #全局css
     config.assets.precompile+= %w( gloable/index.css )
 
