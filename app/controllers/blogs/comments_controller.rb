@@ -2,7 +2,6 @@ class Blogs::CommentsController < ApplicationController
   def create
     @blog_comment = Blogs::Comment.new(create_params)
     @post = Blogs::Post.find(params[:post_id])
-    memory = params[:post_id]
     @blog_comment.blogs_post = @post
     @blog_comment.user = current_user
     respond_to do |format|

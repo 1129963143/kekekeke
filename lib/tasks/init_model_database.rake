@@ -7,7 +7,7 @@ namespace :init_model_database do
     @blogs_post = Blogs::Post.first
     @name= '分类'
     5.times  do |index|
-    Blogs::Sort.create(name: "#@name#{index}", user: @user, blogs_post: @blogs_post)
+    Blogs::Sort.create(name: "#@name#{index}", user: @user)
       end
   end
 

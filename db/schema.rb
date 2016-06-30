@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160629065545) do
   end
 
   add_index "blogs_comments", ["comment_id"], name: "index_blogs_comments_on_comment_id"
+  add_index "blogs_comments", ["post_id"], name: "index_blogs_comments_on_post_id"
 
   create_table "blogs_posts", force: :cascade do |t|
     t.string   "title"
@@ -31,11 +32,9 @@ ActiveRecord::Schema.define(version: 20160629065545) do
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "post_count"
     t.integer  "comment_count"
   end
 
-  add_index "blogs_posts", ["post_count"], name: "index_blogs_posts_on_post_count"
   add_index "blogs_posts", ["title"], name: "index_blogs_posts_on_title"
 
   create_table "blogs_sorts", force: :cascade do |t|
