@@ -1,4 +1,18 @@
 @import url(posts.scss);
 .blog-content{
   min-height: 700px;
+  .cus_show_blog{
+
+  }
+  .subtitle{
+    border-bottom: dashed 1px #CFCFCF;
+
+  }
+  .title-row{
+    margin-bottom: 30px;
+  }
+
+}
+.blog-content-foot{
+  border-left: groove 3px #CFCFCF;
 }

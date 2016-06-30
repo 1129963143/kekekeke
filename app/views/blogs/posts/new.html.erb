@@ -24,7 +24,9 @@
           </script>
     </div>
         <div class="col-lg-10 col-lg-offset-1">
-          <h5><label>博客分类：</label><%= select_tag "blogs_post[sort_id]" ,options_from_collection_for_select(@post_sorts, :id, :name,(@post.sort_id unless @post.blank?) ),class: 'cus_select' %></h5>
+          <h5><label>博客分类：</label><%= select_tag "blogs_post[sort_id]" ,options_from_collection_for_select(@post_sorts, :id, :name,(@post.sort_id unless @post.blank?) ),class: 'cus_select' %>
+
+          </h5>
           <%= f.submit %>
         </div>
 
@@ -34,3 +36,19 @@
 
 
 </div>
+
+<script>
+  $(document).ready(
+          function(){
+              $('.post_new_or_edit').submit(function(){
+                 var $title_value =  $('.blog-title').val()
+                  if($title_value=='' || $title_value==null){
+                      alert('对不起，请输入标题！')
+                      return false;
+                  }
+                  return true;
+              })
+          }
+  )
+
+</script>

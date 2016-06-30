@@ -7,11 +7,11 @@
 <div class="container">
   <div class="row blog-content">
     <div class="col-lg-10 col-lg-offset-1">
-      <div class="row" >
+      <div class="row title-row" >
         <div class="col-lg-10">
           <%= render partial: 'blogs/posts/title_style', object: @title %>
-          <div>
-            <h6>分类：<%= @post.blogs_sort.present? ? @post.blogs_sort.name : '未分类' %>
+          <div class="subtitle">
+            <h6>分类: <a href=""><%= @post.blogs_sort.present? ? @post.blogs_sort.name : '未分类' %></a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              创建时间 <%= datetime_format_helper(@post.created_at) %>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -37,9 +37,10 @@
         </div>
 
       </div>
-      <div class="col-lg-12" style="align-content: center; text-align: center; ">
+      <div class="col-lg-12">
         <div id="preview" class="fr-view cus_show_blog"></div>
       </div>
+
     </div>
   </div>
 
@@ -51,6 +52,16 @@
          $('#preview').html(content);
      })
   </script>
+
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1 blog-content-foot">
+      <% previous = get_previous_one(@post)
+         after = get_after_one(@post)
+      %>
+      <h6> ↞ 上一篇:　<a href="<%= blogs_post_path(previous) %>"><%= previous.id == @post.id ? '【没有了】' : previous.title %></a></h6>
+      <h6> ↠ 下一篇:　<a href="<%= blogs_post_path(after) %>"><%= after.id == @post.id ? '【没有了】' : after.title %></a></h6>
+    </div>
+  </div>
 
   <div class="container">
     <div class="row blog-comments">
