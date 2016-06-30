@@ -1,18 +1,25 @@
 $key_alert: alert !default;
 $key_error: error !default;
-
+$key_success: success !default;;
+$key_notice: nitice !default;
 .wzh-alert-top{
   .col-#{$key_alert}{
 
+
   }
   .message-#{$key_alert}{
-
+    text-align: center;
+    align-content: center;
   }
   .col-#{$key_error}{
 
   }
   .message-#{$key_error}{
+    text-align: center;
 
+    color: red;
+    font-size: 25px;
+    font-style: oblique;
   }
 
 }

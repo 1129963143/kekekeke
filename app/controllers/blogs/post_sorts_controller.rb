@@ -5,7 +5,7 @@ class Blogs::PostSortsController < ApplicationController
   end
 
   def new
-    @post_sort = Blogs::Sort.new
+    @blogs_post_sort = Blogs::Sort.new
   end
 
   def create
@@ -13,6 +13,8 @@ class Blogs::PostSortsController < ApplicationController
     respond_to do |format|
       if @post_sort.save
         flash[:alert]= "博客分类　#{@post_sort.name} 添加成功。"
+
+        format.js
         format.json{ render json: @post_sort, status: :created}
       else
         format.js
@@ -37,6 +39,6 @@ class Blogs::PostSortsController < ApplicationController
   end
 
   def create_params
-    params.require(:blogs_post_sort).permit(:name)
+    params.require(:blogs_sort).permit(:name)
   end
 end

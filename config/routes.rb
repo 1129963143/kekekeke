@@ -4,17 +4,7 @@ Rails.application.routes.draw do
 
 
 
-  namespace :blogs do
-  get 'post_sorts/index'
-  end
 
-  namespace :blogs do
-  get 'post_sorts/new'
-  end
-
-  namespace :blogs do
-  get 'post_sorts/create'
-  end
 
   get 'about/we'
 

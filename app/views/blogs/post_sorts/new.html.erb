@@ -1,2 +1,10 @@
-<h1>Blogs::PostSorts#new</h1>
-<p>Find me in app/views/blogs/post_sorts/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= form_for @blogs_post_sort, url: blogs_post_sorts_path, method: :post, remote: true do |f| %>
+        <%= f.text_field :name %>
+          <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

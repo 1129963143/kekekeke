@@ -1,5 +1,6 @@
 class Blogs::PostsController < ApplicationController
   before_action :set_post, only: [:show,:edit, :update]
+  before_action :set_blog_sort, only: [:new, :edit]
   #load_and_authorize_resource
   def index
     @posts = Blogs::Post.all
@@ -46,5 +47,8 @@ class Blogs::PostsController < ApplicationController
   end
   def set_post
     @post = Blogs::Post.find(params[:id])
+  end
+  def set_blog_sort
+    @sort = Blogs::Sort.new
   end
 end
