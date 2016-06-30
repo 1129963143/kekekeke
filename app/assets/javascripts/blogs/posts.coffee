@@ -15,3 +15,4 @@ $(document).ready ->
   ).on("ajax:error", (e, data, status, xhr) ->
     $('#new_blogs_comment').append "<p>评论内容提交失败！</p>"
   )
+
