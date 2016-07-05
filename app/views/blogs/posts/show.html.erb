@@ -70,7 +70,7 @@
         next if comment.comment_content.blank?
         %>
         <div class="col-lg-10 col-lg-offset-1 blog-comment">
-          <h5 class="email"><strong><%= comment.user.email %></strong></h5>
+          <h5 class="email"><strong><%= comment.user.blank? ? '【游客】' : comment.user.email %></strong></h5>
 
           <h6><%= datetime_format_helper(comment.created_at) %></h6>
           <h5 class="louceng">＃<%= comment.id %></h5>
@@ -84,7 +84,7 @@
       <div class="col-lg-10 col-lg-offset-1">
         <div class="row">
           <div class="col-lg-12">
-            <h2>发表看法：</h2>
+            <label><h3>发表看法：</h3><%= cus_current_user_email %></label>
           </div>
           <%= form_for @blog_comment, url: blogs_post_comments_path(@post), html: {class: 'comment'},
                        remote: true, data: {confirm: '确定提交此评论？', type: 'json'} do |f| %>
@@ -112,6 +112,10 @@
 </div>
 <script>
 $('form.comment').submit(function(){
+    if(<%= current_user.blank? %>){
+        alert('请先登录！')
+        return false;
+    }
    if($('textarea.cc').val()!=''){
        return true;
    }else{
